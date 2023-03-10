@@ -1,0 +1,4 @@
+#Configuration file for BuildTickets
+
+lang:
+  no-permission: "&cYou don't have permission!"

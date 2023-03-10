@@ -1,0 +1,7 @@
+name: BuildTickets
+version: '${project.version}'
+main: eu.maxpi.fiverr.buildtickets.BuildTickets
+api-version: 1.19
+authors: [ Macslolz ]
+description: Plugin to make tickets for builders
+website: fiverr.com/macslolz
