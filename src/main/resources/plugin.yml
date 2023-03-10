@@ -3,9 +3,13 @@ version: '${project.version}'
 main: eu.maxpi.fiverr.buildtickets.BuildTickets
 api-version: 1.19
 authors: [ Macslolz ]
+depend:
+  - PlaceholderAPI
 description: Plugin to make tickets for builders
 website: fiverr.com/macslolz
 
 commands:
   tickets:
     description: Tickets
+  ticketrevision:
+    description: Tickets revision

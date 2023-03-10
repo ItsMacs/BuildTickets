@@ -2,3 +2,33 @@
 
 lang:
   no-permission: "&cYou don't have permission!"
+  ticket-list-gui: "&6Open Tickets"
+  filler-item-name: "&f"
+  create-ticket-name: "&aNew ticket"
+  create-ticket-lore: "&eCreate a new request for a build"
+  back: "&cPrevious page"
+  forward: "&aNext page"
+  ticket-created: "&aTicket created!"
+  ticket-created-broadcast: "&e%player% &ahas created a new ticket!"
+  ticket-description: "&7Created by: &e%assignee%\n&7Date: &e%date%\n&7Assigned to: &e%assigned%"
+  no-assigned: "&eNobody\n&f\n&o&7(Click to reserve this ticket)"
+  assigned-to-you: "&eYou\n&f\n&o&7(Click to open ticket settings)"
+  complete-ticket: "&aMark as complete"
+  complete-ticket-lore: "&eSet your current location as inspect\n&elocation for the master builders"
+  unassign-ticket: "&cUnassign ticket"
+  unassign-ticket-lore: "&eSet this ticket as unassigned\n&eand open for other builders"
+  ticket-assigned: "&aTicket assigned to you successfully!"
+  ticket-options-gui: "&aTicket options"
+  ticket-revision-list-gui: "&6Completed tickets"
+  resolve-ticket: "&aClose ticket"
+  resolve-ticket-lore: "&7Mark this ticket as solved\n&7and assign points to this builder"
+  tp-ticket: "&9Teleport to position"
+  tp-ticket-lore: "&7Teleport to the reported build for this ticket"
+  retry-ticket: "&cReassign ticket"
+  retry-ticket-lore: "&7Place this ticket back on the\n&7main ticket list"
+
+titles: #Number is upper point limit
+  "&6Trial builder": 200
+  "&aBuilder": 800
+  "&4Grand builder": 2000
+  "&9&lGrand Master builder": 999999999
