@@ -5,3 +5,7 @@ api-version: 1.19
 authors: [ Macslolz ]
 description: Plugin to make tickets for builders
 website: fiverr.com/macslolz
+
+commands:
+  tickets:
+    description: Tickets

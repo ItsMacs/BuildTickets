@@ -1,5 +1,6 @@
 package eu.maxpi.fiverr.buildtickets;
 
+import eu.maxpi.fiverr.buildtickets.commands.TicketsCMD;
 import eu.maxpi.fiverr.buildtickets.utils.PluginLoader;
 import eu.maxpi.fiverr.buildtickets.utils.Ticket;
 import org.bukkit.Bukkit;
@@ -30,7 +31,7 @@ public final class BuildTickets extends JavaPlugin {
     }
 
     private void loadCommands(){
-
+        getCommand("tickets").setExecutor(new TicketsCMD());
     }
 
     private void loadTasks(){
