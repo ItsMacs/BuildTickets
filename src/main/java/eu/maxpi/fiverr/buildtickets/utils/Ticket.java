@@ -16,6 +16,7 @@ public class Ticket {
 
     public String assigned;
     public Location coordinates;
+    public boolean completed = false;
 
     public Ticket(String assignee, String description){
         this.id = UUID.randomUUID().toString();
@@ -24,13 +25,14 @@ public class Ticket {
         this.creationEpoch = ZonedDateTime.now().toEpochSecond();
     }
 
-    public Ticket(String id, String desc, String assigned, String assignee, long creationEpoch, Location coords){
+    public Ticket(String id, String desc, String assigned, String assignee, long creationEpoch, Location coords, boolean completed){
         this.description = desc;
         this.id = id;
         this.assignee = assignee;
         this.assigned = assigned;
         this.creationEpoch = creationEpoch;
         this.coordinates = coords;
+        this.completed = completed;
     }
 
     public String getAssigned(Player p){

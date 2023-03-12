@@ -117,7 +117,6 @@ public class onInvClick implements Listener {
                 Ticket t = BuildTickets.getTicket(i.getString("ticket"));
                 if(t == null) return;
 
-                BuildTickets.revisionTickets.remove(t);
 
                 new AnvilGUI.Builder()
                         .onComplete((c) -> {
@@ -129,6 +128,7 @@ public class onInvClick implements Listener {
                                 return List.of(AnvilGUI.ResponseAction.replaceInputText(" "));
                             }
 
+                            t.completed = true;
                             BuildTickets.points.put(t.assigned, BuildTickets.points.getOrDefault(t.assigned, 0D) + d);
                             return Arrays.asList(AnvilGUI.ResponseAction.close(), AnvilGUI.ResponseAction.run(() -> InventoryMaker.openTicketRevisions(c.getPlayer(), 0)));
                         })

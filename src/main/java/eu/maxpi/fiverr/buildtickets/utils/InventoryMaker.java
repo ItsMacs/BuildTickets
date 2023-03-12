@@ -137,7 +137,7 @@ public class InventoryMaker {
             if(index >= BuildTickets.revisionTickets.size()) continue;
 
             Ticket ticket = BuildTickets.revisionTickets.get(index);
-            inv.setItem(i, makeItem(new ItemStack(i % 2 == 0 ? Material.YELLOW_CONCRETE_POWDER : Material.GREEN_CONCRETE_POWDER), ticket.description, PluginLoader.lang.get("ticket-description").replace("%assignee%", ticket.assignee).replace("%date%", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date(ticket.creationEpoch * 1000L))).replace("%assigned%", ticket.getAssigned(p)), "ticketaction:interact_revision", "ticket:" + ticket.id));
+            inv.setItem(i, makeItem(ticket.completed ? new ItemStack(Material.RED_CONCRETE) : (new ItemStack(i % 2 == 0 ? Material.YELLOW_CONCRETE_POWDER : Material.GREEN_CONCRETE_POWDER)), ticket.description, PluginLoader.lang.get("ticket-description").replace("%assignee%", ticket.assignee).replace("%date%", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date(ticket.creationEpoch * 1000L))).replace("%assigned%", ticket.getAssigned(p)), "ticketaction:interact_revision", "ticket:" + ticket.id));
         }
 
         if(p.hasPermission("buildtickets.create")){
@@ -158,9 +158,9 @@ public class InventoryMaker {
     public static void openRevisionTicket(Player p, Ticket t){
         Inventory inv = Bukkit.createInventory(null, 27, PluginLoader.lang.get("ticket-options-gui"));
 
-        inv.setItem(10, makeItem(new ItemStack(Material.LIME_DYE), PluginLoader.lang.get("resolve-ticket"), PluginLoader.lang.get("resolve-ticket-lore"), "ticketaction:resolve", "ticket:" + t.id));
+        if(!t.completed) inv.setItem(10, makeItem(new ItemStack(Material.LIME_DYE), PluginLoader.lang.get("resolve-ticket"), PluginLoader.lang.get("resolve-ticket-lore"), "ticketaction:resolve", "ticket:" + t.id));
         inv.setItem(13, makeItem(new ItemStack(Material.ENDER_PEARL), PluginLoader.lang.get("tp-ticket"), PluginLoader.lang.get("tp-ticket-lore"), "ticketaction:tp", "ticket:" + t.id));
-        inv.setItem(16, makeItem(new ItemStack(Material.RED_DYE), PluginLoader.lang.get("retry-ticket"), PluginLoader.lang.get("retry-ticket-lore"), "ticketaction:retry", "ticket:" + t.id));
+        if(!t.completed) inv.setItem(16, makeItem(new ItemStack(Material.RED_DYE), PluginLoader.lang.get("retry-ticket"), PluginLoader.lang.get("retry-ticket-lore"), "ticketaction:retry", "ticket:" + t.id));
 
         p.openInventory(inv);
     }

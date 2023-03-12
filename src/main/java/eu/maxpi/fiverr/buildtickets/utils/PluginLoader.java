@@ -22,7 +22,7 @@ public class PluginLoader {
         YamlConfiguration storage = YamlConfiguration.loadConfiguration(new File(BuildTickets.getInstance().getDataFolder() + "/storage.yml"));
         if(storage.contains("points")) storage.getConfigurationSection("points").getKeys(false).forEach(s -> BuildTickets.points.put(s, storage.getDouble("points." + s)));
         if(storage.contains("tickets")) storage.getConfigurationSection("tickets").getKeys(false).forEach(s -> {
-            Ticket t = new Ticket(s, storage.getString("tickets." + s + ".desc"), storage.getString("tickets." + s + ".assigned"), storage.getString("tickets." + s + ".assignee"), storage.getLong("tickets." + s + ".epoch"), storage.getLocation("tickets." + s + ".loc"));
+            Ticket t = new Ticket(s, storage.getString("tickets." + s + ".desc"), storage.getString("tickets." + s + ".assigned"), storage.getString("tickets." + s + ".assignee"), storage.getLong("tickets." + s + ".epoch"), storage.getLocation("tickets." + s + ".loc"), storage.getBoolean("tickets." + s + ".completed"));
             if(storage.getBoolean("tickets." + s + ".revision")){
                 BuildTickets.revisionTickets.add(t);
                 return;
@@ -44,6 +44,7 @@ public class PluginLoader {
             storage.set("tickets." + t.id + ".loc", t.coordinates);
             storage.set("tickets." + t.id + ".desc", t.description);
             storage.set("tickets." + t.id + ".revision", false);
+            storage.set("tickets." + t.id + ".completed", t.completed);
         });
 
         BuildTickets.revisionTickets.forEach(t -> {
@@ -53,6 +54,7 @@ public class PluginLoader {
             storage.set("tickets." + t.id + ".loc", t.coordinates);
             storage.set("tickets." + t.id + ".desc", t.description);
             storage.set("tickets." + t.id + ".revision", true);
+            storage.set("tickets." + t.id + ".completed", t.completed);
         });
 
         try{
